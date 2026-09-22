@@ -1,5 +1,5 @@
 name = "IPython Notebook"
-grammar = "ipynb-notebook"
+grammar = "ipynb_notebook"
 path_suffixes = ["ipynb"]
 tab_size = 2
 hard_tabs = false
