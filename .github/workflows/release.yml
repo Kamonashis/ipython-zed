@@ -1,0 +1,87 @@
+name: Release
+
+# Publishes cross-platform companion binaries when a v* tag is pushed.
+# Asset names must match src/lib.rs: ipynb-lsp-{os}-{arch}, where os is
+# linux/macos/windows and arch is x86_64/aarch64; each archive contains the
+# binary at its root.
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            target: x86_64-unknown-linux-gnu
+            out_os: linux
+            out_arch: x86_64
+            archive: tar.gz
+          - os: ubuntu-24.04
+            target: aarch64-unknown-linux-gnu
+            out_os: linux
+            out_arch: aarch64
+            archive: tar.gz
+          - os: macos-14
+            target: x86_64-apple-darwin
+            out_os: macos
+            out_arch: x86_64
+            archive: tar.gz
+          - os: macos-14
+            target: aarch64-apple-darwin
+            out_os: macos
+            out_arch: aarch64
+            archive: tar.gz
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+            out_os: windows
+            out_arch: x86_64
+            archive: zip
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+      - name: Build
+        run: cargo build --release --target ${{ matrix.target }}
+        working-directory: companion
+
+      - name: Stage (unix)
+        if: matrix.archive == 'tar.gz'
+        run: |
+          mkdir -p dist
+          cp companion/target/${{ matrix.target }}/release/ipynb-lsp dist/ipynb-lsp
+          tar -czf ipynb-lsp-${{ matrix.out_os }}-${{ matrix.out_arch }}.tar.gz -C dist ipynb-lsp
+
+      - name: Stage (windows)
+        if: matrix.archive == 'zip'
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force dist | Out-Null
+          Copy-Item companion/target/${{ matrix.target }}/release/ipynb-lsp.exe dist/ipynb-lsp.exe
+          Compress-Archive -Path dist/ipynb-lsp.exe -DestinationPath ipynb-lsp-${{ matrix.out_os }}-${{ matrix.out_arch }}.zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ipynb-lsp-${{ matrix.out_os }}-${{ matrix.out_arch }}
+          path: ipynb-lsp-${{ matrix.out_os }}-${{ matrix.out_arch }}.${{ matrix.archive }}
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+          path: dist
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist/ipynb-lsp-*
+          generate_release_notes: true

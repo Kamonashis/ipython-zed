@@ -1,0 +1,20 @@
+[package]
+name = "ipynb-lsp"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Companion language server for the ipython-notebook-zed extension: nbformat diagnostics, code actions, and .ipynb <-> percent-script pairing"
+
+[dependencies]
+tower-lsp = "0.20"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "io-util", "io-std", "sync", "net", "time", "fs"] }
+serde = "1"
+serde_json = "1"
+notify = "7"
+uuid = { version = "1", features = ["v4"] }
+
+[workspace]
+
+[profile.release]
+lto = true
+strip = true
