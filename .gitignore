@@ -1,0 +1,5 @@
+target/
+companion/target/
+node_modules/
+*.wasm
+.DS_Store

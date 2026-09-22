@@ -1,0 +1,29 @@
+{
+  "grammars": [
+    {
+      "name": "ipynb_notebook",
+      "file-types": [
+        "ipynb"
+      ],
+      "scope": "source.ipynb"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Tree-sitter grammar for Jupyter / IPython notebook (.ipynb) files",
+    "links": {
+      "repository": "https://github.com/kamonashis/ipython-notebook-zed"
+    },
+    "authors": [
+      {
+        "name": "Kamonashis"
+      }
+    ]
+  },
+  "tree-sitter": {
+    "highlights": "queries/highlights.scm",
+    "injections": "queries/injections.scm",
+    "folds": "queries/folds.scm"
+  }
+}

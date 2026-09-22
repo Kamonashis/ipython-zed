@@ -1,0 +1,14 @@
+id = "ipython-notebook-zed"
+name = "IPython Notebook"
+description = "Notebook-aware editing for .ipynb files plus a jupytext-style pairing workflow that gives Colab-like cell execution via Zed's built-in REPL."
+version = "0.1.0"
+schema_version = 1
+authors = ["Kamonashis <kamonashis@users.noreply.github.com>"]
+repository = "https://github.com/kamonashis/ipython-notebook-zed"
+
+[grammars.ipynb-notebook]
+path = "grammars/tree-sitter-ipynb-notebook"
+
+[language_servers.ipynb-lsp]
+name = "ipynb-lsp"
+languages = ["IPython Notebook"]

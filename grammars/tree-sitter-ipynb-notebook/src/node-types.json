@@ -1,0 +1,484 @@
+[
+  {
+    "type": "array",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "cell",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "null",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "object",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cell",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "code_cell",
+          "named": true
+        },
+        {
+          "type": "markdown_cell",
+          "named": true
+        },
+        {
+          "type": "raw_cell",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "code_cell",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cell_type_code",
+            "named": true
+          }
+        ]
+      },
+      "type_key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cell_type_key",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "pair",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "markdown_cell",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cell_type_markdown",
+            "named": true
+          }
+        ]
+      },
+      "type_key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cell_type_key",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "pair",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "object",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "pair",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pair",
+    "named": true,
+    "fields": {
+      "key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cell_type_key",
+            "named": true
+          },
+          {
+            "type": "data_key",
+            "named": true
+          },
+          {
+            "type": "ename_key",
+            "named": true
+          },
+          {
+            "type": "evalue_key",
+            "named": true
+          },
+          {
+            "type": "execution_count_key",
+            "named": true
+          },
+          {
+            "type": "id_key",
+            "named": true
+          },
+          {
+            "type": "metadata_key",
+            "named": true
+          },
+          {
+            "type": "name_key",
+            "named": true
+          },
+          {
+            "type": "output_type_key",
+            "named": true
+          },
+          {
+            "type": "outputs_key",
+            "named": true
+          },
+          {
+            "type": "source_key",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "text_key",
+            "named": true
+          },
+          {
+            "type": "traceback_key",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "cell",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "null",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "object",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "raw_cell",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cell_type_raw",
+            "named": true
+          }
+        ]
+      },
+      "type_key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "cell_type_key",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "pair",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "cell",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "null",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "object",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "escape_quote",
+          "named": true
+        },
+        {
+          "type": "escape_sequence",
+          "named": true
+        },
+        {
+          "type": "string_content",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "cell_type_code",
+    "named": true
+  },
+  {
+    "type": "cell_type_key",
+    "named": true
+  },
+  {
+    "type": "cell_type_markdown",
+    "named": true
+  },
+  {
+    "type": "cell_type_raw",
+    "named": true
+  },
+  {
+    "type": "data_key",
+    "named": true
+  },
+  {
+    "type": "ename_key",
+    "named": true
+  },
+  {
+    "type": "escape_quote",
+    "named": true
+  },
+  {
+    "type": "escape_sequence",
+    "named": true
+  },
+  {
+    "type": "evalue_key",
+    "named": true
+  },
+  {
+    "type": "execution_count_key",
+    "named": true
+  },
+  {
+    "type": "false",
+    "named": true
+  },
+  {
+    "type": "id_key",
+    "named": true
+  },
+  {
+    "type": "metadata_key",
+    "named": true
+  },
+  {
+    "type": "name_key",
+    "named": true
+  },
+  {
+    "type": "null",
+    "named": true
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "output_type_key",
+    "named": true
+  },
+  {
+    "type": "outputs_key",
+    "named": true
+  },
+  {
+    "type": "source_key",
+    "named": true
+  },
+  {
+    "type": "string_content",
+    "named": true
+  },
+  {
+    "type": "text_key",
+    "named": true
+  },
+  {
+    "type": "traceback_key",
+    "named": true
+  },
+  {
+    "type": "true",
+    "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]

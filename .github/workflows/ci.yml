@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  companion-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: companion
+      - name: Test companion LSP
+        run: cargo test --locked
+        working-directory: companion
+
+      - name: Clippy companion
+        run: cargo clippy -- -D warnings
+        working-directory: companion
+
+  extension-wasm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-wasip2
+      - name: Check extension compiles for wasm32-wasip2
+        run: cargo check --target wasm32-wasip2
+
+  grammar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install tree-sitter CLI
+        run: npm install --no-save tree-sitter-cli
+      - name: Verify grammar generates and parses cleanly
+        run: |
+          npx tree-sitter generate
+          npx tree-sitter parse ../../fixtures/sample.ipynb | tee /tmp/parse.log
+          ! grep -q ERROR /tmp/parse.log
+        working-directory: grammars/tree-sitter-ipynb-notebook

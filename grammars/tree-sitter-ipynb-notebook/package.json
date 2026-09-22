@@ -1,0 +1,1 @@
+{"name": "tree-sitter-ipynb-notebook", "version": "0.1.0", "description": "Tree-sitter grammar for Jupyter / IPython notebook (.ipynb) files", "main": "bindings/node", "keywords": ["tree-sitter", "jupyter", "ipynb", "notebook"], "license": "MIT"}
