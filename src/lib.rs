@@ -2,7 +2,7 @@ use zed_extension_api as zed;
 
 const SERVER_ID: &str = "ipynb-lsp";
 const SERVER_BINARY: &str = "ipynb-lsp";
-const GITHUB_REPO: &str = "kamonashis/ipython-notebook-zed";
+const GITHUB_REPO: &str = "Kamonashis/ipython-zed";
 const RELEASE_TAG: &str = "v0.1.0";
 
 struct IpynbExtension {}

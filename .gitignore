@@ -1,5 +1,6 @@
 target/
 companion/target/
+grammars/ipynb-notebook/
 node_modules/
 *.wasm
 .DS_Store
